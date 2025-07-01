@@ -51,7 +51,22 @@ if (downArrow) {
     e.preventDefault();
     const target = document.querySelector('#timeline');
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const startY = window.scrollY;
+      const endY = target.getBoundingClientRect().top + window.scrollY;
+      const duration = 900;
+      const ease = t => t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+      let start;
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = ease(progress);
+        window.scrollTo(0, startY + (endY - startY) * eased);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
     }
   });
 } 
