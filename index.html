@@ -4,14 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE NEXT STEP – YouTube Shorts & Longform Kurs</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    @keyframes heroLogoPulse {
+      0% { box-shadow: 0 0 0 0 #a22f83cc, 0 0 32px 8px #ffce47cc; }
+      70% { box-shadow: 0 0 0 16px #a22f8300, 0 0 64px 16px #ffce4700; }
+      100% { box-shadow: 0 0 0 0 #a22f83cc, 0 0 32px 8px #ffce47cc; }
+    }
+  </style>
 </head>
 <body>
   <header class="hero">
     <div class="container">
+      <img id="hero-logo" src="favicon.png" alt="THE NEXT STEP Logo" width="80" height="80" style="display:block; margin:0 auto 18px auto; opacity:0; transform:translateY(40px); transition:opacity 0.8s cubic-bezier(.4,1.4,.6,1), transform 0.8s cubic-bezier(.4,1.4,.6,1); border-radius:22px; box-shadow:0 0 0 0 #a22f83cc, 0 0 32px 8px #ffce47cc;">
       <div class="main-title">THE NEXT STEP</div>
       <p class="subtitle hero-large">Lerne, wie du mit YouTube durchstartest – Schritt für Schritt, mit Community & Experten-Feedback.</p>
       <a href="#cta" class="cta-btn hero-btn-large">Jetzt Warteliste beitreten 🚀</a>
@@ -115,6 +124,7 @@
 
   <section class="about card-section">
     <div class="container card-container">
+      <img src="favicon.png" alt="THE NEXT STEP Logo" width="56" height="56" style="display:block; margin:0 auto 18px auto;">
       <h2><span class="highlight">Was ist THE NEXT STEP?</span></h2>
       <p>Dein exklusiver Kurs für YouTube Shorts & Longform. Lerne von erfolgreichen Creatorn, wie du Reichweite aufbaust und mit Videos Geld verdienst.</p>
       <div class="badges-row">
@@ -226,5 +236,15 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var logo = document.getElementById('hero-logo');
+      setTimeout(function() {
+        logo.style.opacity = '1';
+        logo.style.transform = 'translateY(0)';
+        logo.style.animation = 'heroLogoPulse 2.2s infinite';
+      }, 200);
+    });
+  </script>
 </body>
 </html> 
